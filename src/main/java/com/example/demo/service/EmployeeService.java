@@ -31,7 +31,7 @@ public class EmployeeService {
         existing.setEmail(updatedEmployee.getEmail());
         existing.setDepartment(updatedEmployee.getDepartment());
 
-        return employeeRepository.save(existing)
+        return employeeRepository.save(existing);
     }
 
     public void deleteEmplpyee (Long id){
