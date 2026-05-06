@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Employee;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -17,7 +18,7 @@ public class EmployeeService {
     }
 
     public Employee getEmployeeById(Long id){
-        return employeeRepository.findById(id).orElseThrow(() ->new RuntimeException("Employee not found with the id =" + id));
+        return employeeRepository.findById(id).orElseThrow(() ->new ResourceNotFoundException("Employee not found with the id =" + id));
     }
 
     public Employee createEmployee(Employee employee){
