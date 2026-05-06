@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Employee;
 import com.example.demo.service.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,12 +27,12 @@ public class EmployeeController {
     }
 
     @PostMapping()
-    public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee){
+    public ResponseEntity<Employee> createEmployee(@Valid @RequestBody Employee employee){
         return ResponseEntity.ok(employeeService.createEmployee(employee));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id , @RequestBody Employee employee){
+    public ResponseEntity<Employee> updateEmployee(@Valid @PathVariable Long id , @RequestBody Employee employee){
         return ResponseEntity.ok(employeeService.updateEmployee(id , employee));
     }
 
